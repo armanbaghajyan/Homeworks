@@ -12,7 +12,7 @@ class BankAccount:
             print("Your balance now is {}".format(self.balance))
 
     def deposit(self):
-        print("this is deposit {}".format(self.balance))
+        print(" this is deposit {}".format(self.balance))
 
 class PremiumBankAccount(BankAccount):
     creditthreshold = 5000
