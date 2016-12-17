@@ -48,15 +48,6 @@ def is_volid(string,perent):
 
     return close_count == open_count and valid and st.is_empty()
 
-
-# str1 = "(){<a >}"
-# str2 = [("(",")"),("{","}"),("<",">")]
-# try:
-#     assert is_volid(str1,str2)
-# except:
-#     print("Not Passed")
-
-
 def test(test_count):
     char = list(string.ascii_lowercase) + [" ","(",")","[","]","{","}","<",">"]
     for _ in range(test_count):
