@@ -14,17 +14,17 @@ class BankAccount:
     def deposit(self):
         print("this is deposit {}".format(self.balance))
 
-class PremiumBankAccount(BankAccount):
-    creditthreshold = 5000
+class PremiumBankAccount(BankAccount): #(please implement constructor with super call )
+    creditthreshold = 5000 # credit_threshold more pythonic , and if it constant use capital case CREDIT_TRESHOLD
 
-    def set_creditthreshold(self,creditthreshold):
-        self.creditthreshold = creditthreshold
+    def set_creditthreshold(self,creditthreshold): # if creditthreshold common for all class instances, you can
+        self.creditthreshold = creditthreshold     # use class creditthreshold constant
 
     def withdrow(self,amount):
-        if amount > self.creditthreshold:
+        if amount > self.creditthreshold: # what if person have money on balance ?
             print("Your Creditthreshold is less then you want. Creditthreshold is {}".format(self.creditthreshold))
         else:
-            self.set_creditthreshold((self.creditthreshold - amount))
+            self.set_creditthreshold((self.creditthreshold - amount)) # why you get money only from credit ?
             print("""Because of you are premium account you can get more thaen you have on current balance.
 Current Credit Balance is: {}""".format(self.creditthreshold))
 
@@ -41,7 +41,7 @@ class Persone():
         self.salarytrashold = salarytrashold
 
     def change_salary(self,new_selary):
-        self.salary = new_selary
+        self.salary = new_selary # if Person salary changes, it don't change bank account type :(
 
     def bank_account(self):
         print("""FirstName: {0}

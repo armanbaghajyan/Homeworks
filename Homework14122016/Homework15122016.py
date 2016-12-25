@@ -1,20 +1,22 @@
 import string
 import random
+
+
 class Stack:
     def __init__(self):
         self.arr = []
 
-    def push(self,value):
+    def push(self, value):
         self.arr.append(value)
 
     def pop(self):
         if not self.arr:
-            raise "Empty stack"
+            raise Exception("Empty stack") # rise exeptions with Exeption constructor
         return self.arr.pop()
 
     def top(self):
         if not self.arr:
-            raise "Empty stack"
+            raise Exception("Empty stack") # :D
         return self.arr[-1]
 
     def pri(self):
@@ -23,7 +25,8 @@ class Stack:
     def is_empty(self):
         return not bool(self.arr)
 
-def is_volid(string,perent):
+
+def is_valid(string, perent): # please don't use key words like sting for argument name
     open_per = []
     close_per = []
     st = Stack()
@@ -34,7 +37,7 @@ def is_volid(string,perent):
 
     if string[0] in close_per:
         return False
-    open_count = 0
+    open_count = 0 # i think open_count and close count variables unnecessary
     close_count = 0
     for letter in string:
         if letter in open_per:
@@ -48,22 +51,22 @@ def is_volid(string,perent):
 
     return close_count == open_count and valid and st.is_empty()
 
+
 def test(test_count):
-    char = list(string.ascii_lowercase) + [" ","(",")","[","]","{","}","<",">"]
+    char = list(string.ascii_lowercase) + [" ", "(", ")", "[", "]", "{", "}", "<", ">"]
     for _ in range(test_count):
-        lenght_str = random.randint(5,20)
+        lenght_str = random.randint(5, 20)
         lenght_pernt = random.randint(1, 4)
         test_string = "".join([random.choice(char) for _ in range(lenght_str)])
         test_pernt = [random.choice([("(", ")"), ("[", "]"), ("{", "}"), ("<", ">")]) for _ in range(lenght_pernt)]
-        print("""String is.
-{}""".format(test_string))
-        print("""perentesis is.
-{}""".format(test_pernt))
+        print("""String is.{}""".format(test_string))
+        print("""perentesis is.{}""".format(test_pernt))
         try:
-            assert is_volid(test_string,test_pernt)
-        except:
+            assert is_valid(test_string, test_pernt)
+        except: # for except always write execptions, otherwise it catch all exceptions, and they pass silently
             print("TEST NOT PASSED")
     print("TEST PASSED")
+
 
 test(3)
 
